@@ -8,6 +8,7 @@
 </head>
 <body>
 
+<!-- ============== PUBLIC FRONT PAGE (VISIBLE BEFORE LOGIN) ============== -->
 <header class="nav">
   <div class="container nav-row">
     <div class="brand">
@@ -38,6 +39,7 @@
       <p class="muted">We provide top-notch security solutions for your valuable possessions.</p>
       <a class="btn btn-primary" href="#services">GET STARTED</a>
     </div>
+    <!-- Secure sign-in card -->
     <aside class="login-card">
       <h3>LOGIN</h3>
       <label for="uid">Unique ID</label>
@@ -55,21 +57,9 @@
   <div class="container">
     <h2 class="section-title">SERVICES</h2>
     <div class="cards">
-      <div class="card">
-        <div class="card-ico">🔒</div>
-        <h4>SECURE STORAGE</h4>
-        <p>Protect, account, and audit custody with rigorous controls.</p>
-      </div>
-      <div class="card">
-        <div class="card-ico">🕒</div>
-        <h4>24/7 MONITORING</h4>
-        <p>Continuous oversight and event logging for peace of mind.</p>
-      </div>
-      <div class="card">
-        <div class="card-ico">🪪</div>
-        <h4>ACCESS CONTROL</h4>
-        <p>Role-based access, signatory rules, and approvals.</p>
-      </div>
+      <div class="card"><div class="card-ico">🔒</div><h4>SECURE STORAGE</h4><p>Protect, account, and audit custody with rigorous controls.</p></div>
+      <div class="card"><div class="card-ico">🕒</div><h4>24/7 MONITORING</h4><p>Continuous oversight and event logging for peace of mind.</p></div>
+      <div class="card"><div class="card-ico">🪪</div><h4>ACCESS CONTROL</h4><p>Role-based access, signatory rules, and approvals.</p></div>
     </div>
   </div>
 </section>
@@ -79,8 +69,8 @@
     <div class="about-copy">
       <h2 class="section-title">ABOUT US</h2>
       <p>
-        With years of experience, Gold Shield Vault keeps a clear, read-only heritage record of precious assets.
-        Entries capture the key facts—date, location, depositor, witness, and beneficiaries—so the story remains intact.
+        Gold Shield Vault keeps a clear, read-only heritage record of precious assets:
+        date, location, depositor, witness, and beneficiaries—so the story stays intact.
       </p>
     </div>
     <div class="about-img" role="img" aria-label="Vault image"></div>
@@ -88,10 +78,10 @@
 </section>
 
 <footer class="footer">
-  <div class="container">© <span id=""></span> Gold Shield Vault</div>
+  <div class="container">© <span id="year"></span> Gold Shield Vault</div>
 </footer>
 
-<!-- =================== DASHBOARD =================== -->
+<!-- ============== PRIVATE DASHBOARD (HIDDEN UNTIL LOGIN) ============== -->
 <section id="page-view" class="dashboard hidden">
   <div class="container">
     <div class="dash-top">
@@ -119,9 +109,8 @@
       <div class="panel-card">
         <h4>Record ID: <span>GSV-1988-0001</span></h4>
         <div class="kv">
-          <div><span>Status</span><strong id="ov-status">Active (in custody)</strong></div>
           <div><span>Date Stored</span><strong id="ov-date">—</strong></div>
-          <div><span>Primary Depositor</span><strong id="ov-dep">—</strong></div>
+          <div><span>Depositor</span><strong id="ov-dep">—</strong></div>
           <div><span>Witness</span><strong id="ov-wit">—</strong></div>
           <div><span>Beneficiaries</span><strong id="ov-nok">—</strong></div>
           <div><span>Insurance</span><strong id="ov-ins">Vanguard</strong></div>
@@ -130,16 +119,61 @@
       </div>
     </div>
 
-    <!-- Items -->
+    <!-- Items (includes your two videos) -->
     <div id="panel-it" class="panel">
-      <div class="panel-card">
-        <h4>Registered Items</h4>
-        <div class="table">
-          <div class="t-head">
-            <div>Item ID</div><div>Category</div><div>Description</div><div>Gross Weight</div><div>Unit</div><div>Notes</div>
+      <div class="items-wrap">
+        <!-- Sidebar -->
+        <aside class="items-side">
+          <div class="panel-card mini">
+            <h4>Items Menu</h4>
+            <nav class="items-nav">
+              <a href="#it-registered">Registered Items</a>
+              <a href="#it-evidence">Evidence Videos</a>
+            </nav>
           </div>
-          <div id="items-rows"></div>
-        </div>
+          <div class="panel-card mini info">
+            <h4>Notes</h4>
+            <p class="muted tiny">This section shows the custody record plus two evidence videos:</p>
+            <ul class="tiny bullets">
+              <li><strong>Video 1</strong> — How it was brought in</li>
+              <li><strong>Video 2</strong> — Weighing session</li>
+            </ul>
+          </div>
+        </aside>
+
+        <!-- Main content -->
+        <section class="items-body">
+          <div id="it-registered" class="panel-card">
+            <h4>Registered Items</h4>
+            <div class="table">
+              <div class="t-head">
+                <div>Item ID</div><div>Category</div><div>Description</div><div>Gross Weight</div><div>Unit</div><div>Notes</div>
+              </div>
+              <div id="items-rows"></div>
+            </div>
+          </div>
+
+          <div id="it-evidence" class="panel-card">
+            <h4>Evidence Videos</h4>
+            <p class="muted tiny">Original footage documenting asset arrival and weighing.</p>
+            <div class="video-grid">
+              <div class="video-card">
+                <div class="video-head">Video 1 — How it was brought in</div>
+                <video class="vault-video" controls preload="metadata" playsinline>
+                  <source src="video/video1.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="video-card">
+                <div class="video-head">Video 2 — Weighing the items</div>
+                <video class="vault-video" controls preload="metadata" playsinline>
+                  <source src="video/video2.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
 
@@ -148,25 +182,13 @@
       <div class="grid2">
         <div class="panel-card">
           <h4>Depositor</h4>
-          <div class="blk">
-            <div class="blk-ttl" id="p-dep">—</div>
-            <div class="muted tiny">Role: Owner / Settlor</div>
-          </div>
-          <div class="blk">
-            <div class="blk-ttl" id="p-wit">—</div>
-            <div class="muted tiny">Witness</div>
-          </div>
+          <div class="blk"><div class="blk-ttl" id="p-dep">—</div><div class="muted tiny">Role: Owner / Settlor</div></div>
+          <div class="blk"><div class="blk-ttl" id="p-wit">—</div><div class="muted tiny">Witness</div></div>
         </div>
         <div class="panel-card">
           <h4>Beneficiaries</h4>
-          <div class="blk">
-            <div class="blk-ttl">Williams Richard</div>
-            <div class="muted tiny">Beneficiary</div>
-          </div>
-          <div class="blk">
-            <div class="blk-ttl">Unknown Future Spouse</div>
-            <div class="muted tiny">Beneficiary (placeholder)</div>
-          </div>
+          <div class="blk"><div class="blk-ttl">Williams Richard</div><div class="muted tiny">Beneficiary</div></div>
+          <div class="blk"><div class="blk-ttl">Unknown Future Spouse</div><div class="muted tiny">Beneficiary (placeholder)</div></div>
           <div class="muted tiny mt8">Suggested split: 50/50 equal shares or trustee arrangement with 2-of-2 approvals.</div>
         </div>
       </div>
@@ -200,14 +222,13 @@
       </div>
     </div>
 
-    <!-- Valuation & Costs (FIXED) -->
+    <!-- Valuation & Costs -->
     <div id="panel-vc" class="panel">
       <div class="stats">
         <div class="stat"><div class="stat-top">Insurance</div><div class="stat-num">Vanguard</div><div class="stat-foot">Provider recorded</div></div>
         <div class="stat"><div class="stat-top">Valuation Status</div><div class="stat-num small">Pending</div><div class="stat-foot">Appraisals required</div></div>
         <div class="stat"><div class="stat-top">Next Action</div><div class="stat-num small">Schedule appraisal</div><div class="stat-foot">Gold & Diamonds</div></div>
       </div>
-
       <div class="panel-card">
         <h4>Valuation Plan</h4>
         <div class="table cols4">
@@ -215,16 +236,6 @@
           <div class="t-row"><div>1</div><div>Valuation (Gold)</div><div>Pending</div><div>Independent appraisal recommended</div></div>
           <div class="t-row"><div>2</div><div>Valuation (Diamonds)</div><div>Pending</div><div>Grading / parcel log advised</div></div>
           <div class="t-row"><div>3</div><div>Insurance</div><div>Recorded</div><div>Provider: Vanguard</div></div>
-        </div>
-      </div>
-
-      <div class="panel-card">
-        <h4>Estimated Fees (to be confirmed)</h4>
-        <div class="table cols4">
-          <div class="t-head"><div>Line</div><div>Fee Type</div><div>Status</div><div>Notes</div></div>
-          <div class="t-row"><div>1</div><div>Custody/Storage</div><div>TBD</div><div>Set after policy & valuation</div></div>
-          <div class="t-row"><div>2</div><div>Transfer / Release</div><div>TBD</div><div>Per custody terms</div></div>
-          <div class="t-row"><div>3</div><div>Appraisal Services</div><div>TBD</div><div>Schedule with certified appraisers</div></div>
         </div>
       </div>
     </div>
