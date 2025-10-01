@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Gold Shield Vault</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-row">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 24 24" aria-hidden="true">
+        <defs>
+          <linearGradient id="gld" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#F5D76E"/><stop offset="1" stop-color="#C9A227"/>
+          </linearGradient>
+        </defs>
+        <path fill="url(#gld)" d="M12 2l7 3v6c0 5.25-3.5 9.67-7 11-3.5-1.33-7-5.75-7-11V5l7-3z"/>
+        <path d="M12 7a2 2 0 012 2v2h-4V9a2 2 0 012-2zm-3 6h6v3H9z" fill="#1b1407" opacity=".9"/>
+      </svg>
+      <span>GOLD SHIELD VAULT</span>
+    </div>
+    <nav class="links">
+      <a href="#home">HOME</a>
+      <a href="#services">SERVICES</a>
+      <a href="#about">ABOUT US</a>
+    </nav>
+    <button class="btn btn-ghost" id="nav-login">LOGIN</button>
+  </div>
+</header>
+
+<main id="home" class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <h1>SECURE & RELIABLE <span class="break">STORAGE</span></h1>
+      <p class="muted">We provide top-notch security solutions for your valuable possessions.</p>
+      <a class="btn btn-primary" href="#services">GET STARTED</a>
+    </div>
+    <aside class="login-card">
+      <h3>LOGIN</h3>
+      <label for="uid">Unique ID</label>
+      <input id="uid" placeholder="Unique ID" autocomplete="off" inputmode="numeric" />
+      <label for="pwd">Password</label>
+      <input id="pwd" type="password" placeholder="Password" autocomplete="current-password" />
+      <button id="btn-login" class="btn btn-primary" disabled>LOGIN</button>
+      <div id="auth-msg" class="auth-msg"></div>
+      <a class="tiny muted" href="javascript:void(0)">Forgot password?</a>
+    </aside>
+  </div>
+</main>
+
+<section id="services" class="section">
+  <div class="container">
+    <h2 class="section-title">SERVICES</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-ico">🔒</div>
+        <h4>SECURE STORAGE</h4>
+        <p>Protect, account, and audit custody with rigorous controls.</p>
+      </div>
+      <div class="card">
+        <div class="card-ico">🕒</div>
+        <h4>24/7 MONITORING</h4>
+        <p>Continuous oversight and event logging for peace of mind.</p>
+      </div>
+      <div class="card">
+        <div class="card-ico">🪪</div>
+        <h4>ACCESS CONTROL</h4>
+        <p>Role-based access, signatory rules, and approvals.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section alt">
+  <div class="container about-grid">
+    <div class="about-copy">
+      <h2 class="section-title">ABOUT US</h2>
+      <p>
+        With years of experience, Gold Shield Vault keeps a clear, read-only heritage record of precious assets.
+        Entries capture the key facts—date, location, depositor, witness, and beneficiaries—so the story remains intact.
+      </p>
+    </div>
+    <div class="about-img" role="img" aria-label="Vault image"></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">© <span id="year"></span> Gold Shield Vault</div>
+</footer>
+
+<!-- =================== DASHBOARD =================== -->
+<section id="page-view" class="dashboard hidden">
+  <div class="container">
+    <div class="dash-top">
+      <h3>Vault Dashboard</h3>
+      <button id="btn-lock" class="btn btn-ghost">LOCK</button>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab active" data-tab="ov">Overview</button>
+      <button class="tab" data-tab="it">Items</button>
+      <button class="tab" data-tab="pt">Parties</button>
+      <button class="tab" data-tab="cn">Custody</button>
+      <button class="tab" data-tab="co">Compliance</button>
+      <button class="tab" data-tab="vc">Valuation & Costs</button>
+    </div>
+
+    <!-- Overview -->
+    <div id="panel-ov" class="panel show">
+      <div class="stats">
+        <div class="stat"><div class="stat-top">Gold (gross)</div><div class="stat-num" id="s-gold">—</div><div class="stat-foot">Recorded 1988</div></div>
+        <div class="stat"><div class="stat-top">Diamonds (gross)</div><div class="stat-num" id="s-diamonds">—</div><div class="stat-foot">Recorded 1988</div></div>
+        <div class="stat"><div class="stat-top">Location</div><div class="stat-num small" id="s-location">—</div><div class="stat-foot" id="s-date">—</div></div>
+      </div>
+      <div class="panel-card">
+        <h4>Record ID: <span>GSV-1988-0001</span></h4>
+        <div class="kv">
+          <div><span>Status</span><strong id="ov-status">Active (in custody)</strong></div>
+          <div><span>Date Stored</span><strong id="ov-date">—</strong></div>
+          <div><span>Primary Depositor</span><strong id="ov-dep">—</strong></div>
+          <div><span>Witness</span><strong id="ov-wit">—</strong></div>
+          <div><span>Beneficiaries</span><strong id="ov-nok">—</strong></div>
+          <div><span>Insurance</span><strong id="ov-ins">Vanguard</strong></div>
+        </div>
+        <div class="note">Co-beneficiary management (two signatories) is recommended for major assets.</div>
+      </div>
+    </div>
+
+    <!-- Items -->
+    <div id="panel-it" class="panel">
+      <div class="panel-card">
+        <h4>Registered Items</h4>
+        <div class="table">
+          <div class="t-head">
+            <div>Item ID</div><div>Category</div><div>Description</div><div>Gross Weight</div><div>Unit</div><div>Notes</div>
+          </div>
+          <div id="items-rows"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Parties -->
+    <div id="panel-pt" class="panel">
+      <div class="grid2">
+        <div class="panel-card">
+          <h4>Depositor</h4>
+          <div class="blk">
+            <div class="blk-ttl" id="p-dep">—</div>
+            <div class="muted tiny">Role: Owner / Settlor</div>
+          </div>
+          <div class="blk">
+            <div class="blk-ttl" id="p-wit">—</div>
+            <div class="muted tiny">Witness</div>
+          </div>
+        </div>
+        <div class="panel-card">
+          <h4>Beneficiaries</h4>
+          <div class="blk">
+            <div class="blk-ttl">Williams Richard</div>
+            <div class="muted tiny">Beneficiary</div>
+          </div>
+          <div class="blk">
+            <div class="blk-ttl">Unknown Future Spouse</div>
+            <div class="muted tiny">Beneficiary (placeholder)</div>
+          </div>
+          <div class="muted tiny mt8">Suggested split: 50/50 equal shares or trustee arrangement with 2-of-2 approvals.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custody -->
+    <div id="panel-cn" class="panel">
+      <div class="panel-card">
+        <h4>Custody</h4>
+        <div class="kv four">
+          <div><span>Stored On</span><strong id="c-date">—</strong></div>
+          <div><span>Region</span><strong id="c-region">—</strong></div>
+          <div><span>Record Year</span><strong id="c-year">—</strong></div>
+          <div><span>Record Ref</span><strong>GSV-1988-0001</strong></div>
+        </div>
+        <div class="note">Decisions should be documented and co-signed to preserve value and clarity.</div>
+      </div>
+    </div>
+
+    <!-- Compliance -->
+    <div id="panel-co" class="panel">
+      <div class="panel-card">
+        <h4>Compliance Checklist</h4>
+        <div class="table cols4">
+          <div class="t-head"><div>#</div><div>Item</div><div>Status</div><div>Comment</div></div>
+          <div class="t-row"><div>1</div><div>ID of depositor</div><div>Recorded</div><div id="co-dep">—</div></div>
+          <div class="t-row"><div>2</div><div>Witness record</div><div>Recorded</div><div id="co-wit">—</div></div>
+          <div class="t-row"><div>3</div><div>Beneficiary entry</div><div>Recorded</div><div id="co-nok">—</div></div>
+          <div class="t-row"><div>4</div><div>Insurance</div><div>Recorded</div><div>Vanguard</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Valuation & Costs (FIXED) -->
+    <div id="panel-vc" class="panel">
+      <div class="stats">
+        <div class="stat"><div class="stat-top">Insurance</div><div class="stat-num">Vanguard</div><div class="stat-foot">Provider recorded</div></div>
+        <div class="stat"><div class="stat-top">Valuation Status</div><div class="stat-num small">Pending</div><div class="stat-foot">Appraisals required</div></div>
+        <div class="stat"><div class="stat-top">Next Action</div><div class="stat-num small">Schedule appraisal</div><div class="stat-foot">Gold & Diamonds</div></div>
+      </div>
+
+      <div class="panel-card">
+        <h4>Valuation Plan</h4>
+        <div class="table cols4">
+          <div class="t-head"><div>Line</div><div>Subject</div><div>Status</div><div>Notes</div></div>
+          <div class="t-row"><div>1</div><div>Valuation (Gold)</div><div>Pending</div><div>Independent appraisal recommended</div></div>
+          <div class="t-row"><div>2</div><div>Valuation (Diamonds)</div><div>Pending</div><div>Grading / parcel log advised</div></div>
+          <div class="t-row"><div>3</div><div>Insurance</div><div>Recorded</div><div>Provider: Vanguard</div></div>
+        </div>
+      </div>
+
+      <div class="panel-card">
+        <h4>Estimated Fees (to be confirmed)</h4>
+        <div class="table cols4">
+          <div class="t-head"><div>Line</div><div>Fee Type</div><div>Status</div><div>Notes</div></div>
+          <div class="t-row"><div>1</div><div>Custody/Storage</div><div>TBD</div><div>Set after policy & valuation</div></div>
+          <div class="t-row"><div>2</div><div>Transfer / Release</div><div>TBD</div><div>Per custody terms</div></div>
+          <div class="t-row"><div>3</div><div>Appraisal Services</div><div>TBD</div><div>Schedule with certified appraisers</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script src="js/app.js"></script>
+</body>
+</html>
